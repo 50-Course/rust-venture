@@ -5,8 +5,12 @@ use std::path::PathBuf;
 
 // Let's model our command line
 // requires at least two arguments
+//
 // arg1: pattern in form of string, or regex-string (to be searched)
 // arg2: path to search in
+// TOdO: understand what #[warn(dead_code)] means, error given by LSP
+// I would assue this is reffering to model not been used yet, hence
+// would get deferenced or something by the compiler
 struct CliModel {
     pattern: String,
     path: PathBuf
@@ -14,10 +18,16 @@ struct CliModel {
 
 
 fn main() {
-    // grab some command line argument
-    // and print them back to the console
-    for arg in env::args() {
-        println!("{}", arg);
-    }
+   // grab some command-line arg from the user
+   // namespace (as it is been called in C/C++ and similar to other languages modules)
+   // - has this unwraps() functions that allows us to access the values of some key-variable
+   // essentially acting as a deserializer decorator (at least what i think but imma look it
+   // up later)
+   //
+   // however contains panics if couldn't find a value for this K-V (that is when K-V is {K: Null}
+   // and crashes the program.
+   //
+   // Found out theres a little method call expect that allows us to write out some human-readable
+   // messages instead.
 
 }
