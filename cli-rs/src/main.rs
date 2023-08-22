@@ -11,9 +11,9 @@ use std::path::PathBuf;
 // TOdO: understand what #[warn(dead_code)] means, error given by LSP
 // I would assue this is reffering to model not been used yet, hence
 // would get deferenced or something by the compiler
-struct CliModel {
+struct Cli {
     pattern: String,
-    path: PathBuf
+    path: PathBuf::fromPath()
 }
 
 
@@ -29,5 +29,6 @@ fn main() {
    //
    // Found out theres a little method call expect that allows us to write out some human-readable
    // messages instead.
-
+   let pattern = env::args().nth(1).expect("What exactly do you want to search, include a string");
+   let path = env::args().nth(2).expect("What exactly do you want to search, include a string");
 }
