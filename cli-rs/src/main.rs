@@ -1,10 +1,9 @@
 use std::env;
-use std::path::PathBuf;
-
+use std::path::{PathBuf, Path};
 
 
 // Let's model our command line
-// requires at least two arguments
+// requirjs at least two arguments
 //
 // arg1: pattern in form of string, or regex-string (to be searched)
 // arg2: path to search in
@@ -13,7 +12,7 @@ use std::path::PathBuf;
 // would get deferenced or something by the compiler
 struct Cli {
     pattern: String,
-    path: PathBuf::fromPath()
+    path: PathBuf::fromPath
 }
 
 
@@ -30,5 +29,9 @@ fn main() {
    // Found out theres a little method call expect that allows us to write out some human-readable
    // messages instead.
    let pattern = env::args().nth(1).expect("What exactly do you want to search, include a string");
-   let path = env::args().nth(2).expect("What exactly do you want to search, include a string");
+   let path = env::args().nth(2).expect("Enter path to file");
+   let args = Cli {
+       pattern: pattern,
+       path: PathBuf::from(path)
+   };
 }
